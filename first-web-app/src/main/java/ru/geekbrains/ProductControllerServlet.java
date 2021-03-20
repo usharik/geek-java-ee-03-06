@@ -1,5 +1,7 @@
 package ru.geekbrains;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.geekbrains.persist.Product;
 import ru.geekbrains.persist.ProductRepository;
 
@@ -15,6 +17,8 @@ import java.util.regex.Pattern;
 
 @WebServlet(urlPatterns = "/product/*")
 public class ProductControllerServlet extends HttpServlet {
+
+    private static final Logger logger = LoggerFactory.getLogger(ProductControllerServlet.class);
 
     private static final Pattern pathParam = Pattern.compile("\\/(\\d*)$");
 
@@ -60,7 +64,7 @@ public class ProductControllerServlet extends HttpServlet {
             String strId = req.getParameter("id");
             try {
                 Product product = new Product(
-                        strId == null ? null : Long.parseLong(strId),
+                        strId.isEmpty() ? null : Long.parseLong(strId),
                         req.getParameter("name"),
                         req.getParameter("description"),
                         new BigDecimal(req.getParameter("price")));
