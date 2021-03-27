@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
@@ -14,7 +15,8 @@
     <div class="row py-2">
         <div class="col-12">
             <!-- TODO добавить переход на форму нового продукта -->
-            <a class="btn btn-primary" href="#">Add Product</a>
+            <c:url value="/product/new" var="productUrl"/>
+            <a class="btn btn-primary" href="${productUrl}">Add Product</a>
         </div>
 
         <div class="col-12">
@@ -66,7 +68,11 @@
                                 <td>
                                     <c:url value="/product/${product.id}" var="productUrl"/>
                                     <a class="btn btn-success" href="${productUrl}"><i class="fas fa-edit"></i></a>
-                                    <a class="btn btn-danger" href="#"><i class="far fa-trash-alt"></i></a>
+
+                                    <c:url value="/product/delete/${product.id}" var="productDeleteUrl"/>
+                                    <form method="post" action="${productDeleteUrl}" class="d-inline">
+                                        <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                         </c:forEach>

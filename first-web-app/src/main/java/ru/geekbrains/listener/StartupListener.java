@@ -25,6 +25,7 @@ public class StartupListener implements ServletContextListener {
         productRepository.save(new Product(null, "Product 1", "Description 1", new BigDecimal(100)));
         productRepository.save(new Product(null, "Product 2", "Description 2", new BigDecimal(200)));
         productRepository.save(new Product(null, "Product 3", "Description 3", new BigDecimal(300)));
+        productRepository.save(new Product(null, "Продукт 4", "Description 4", new BigDecimal(300)));
 
         sce.getServletContext().setAttribute("productRepository", productRepository);
     }

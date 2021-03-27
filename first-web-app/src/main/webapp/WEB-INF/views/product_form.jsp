@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
@@ -14,7 +15,7 @@
     <div class="row py-2">
         <div class="col-12">
             <c:url value="/product" var="productSubmitUrl"/>
-            <form action="${productSubmitUrl}" method="post">
+            <form action="${productSubmitUrl}" method="post" accept-charset="utf-8">
                 <input value="${requestScope.product.id}" type="hidden" id="id" name="id">
 
                 <div class="form-group">
