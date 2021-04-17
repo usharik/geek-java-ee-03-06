@@ -16,7 +16,7 @@ import javax.jms.ObjectMessage;
 @MessageDriven(
         activationConfig = {
                 @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
-                @ActivationConfigProperty(propertyName = "destination", propertyValue = "java:jboss/exported/jms/productQueue")
+                @ActivationConfigProperty(propertyName = "destination", propertyValue = "java:jboss/exported/jms/queue/productQueue")
         }
 )
 public class JmsProductReceiver implements MessageListener {

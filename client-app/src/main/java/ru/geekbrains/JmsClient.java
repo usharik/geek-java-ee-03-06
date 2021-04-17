@@ -16,9 +16,9 @@ public class JmsClient {
         Context context = createInitialContext();
 
         ConnectionFactory factory = (ConnectionFactory) context.lookup("jms/RemoteConnectionFactory");
-        JMSContext jmsContext = factory.createContext("ejbuser", "123");
+        JMSContext jmsContext = factory.createContext("jmsuser", "123");
 
-        Destination dest = (Destination) context.lookup("jms/productQueue");
+        Destination dest = (Destination) context.lookup("jms/queue/productQueue");
 
         JMSProducer producer = jmsContext.createProducer();
 
